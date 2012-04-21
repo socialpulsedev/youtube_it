@@ -215,7 +215,7 @@ class YouTubeIt
       
         entry.elements.each("link") do |link_tag|
           if link_tag.attributes["rel"]=="http://gdata.youtube.com/schemas/2007#video"
-            videos << YouTubeIt::Parser::VideoFeedParser.new(link_tag).parse
+            videos << YouTubeIt::Parser::VideoFeedParser.new(link_tag).parse if link_tag.elements["entry"]
           end
         end
         
